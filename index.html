@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Projects</title>
+  <meta name="description" content="A clean, responsive portfolio of my projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111a2b;
+      --muted: #93a1b1;
+      --text: #e6edf3;
+      --brand: #3b82f6;
+      --ring: #60a5fa55;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f8fa;
+        --card: #ffffff;
+        --muted: #4b5563;
+        --text: #0f172a;
+        --brand: #2563eb;
+        --ring: #2563eb33;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 10% -10%, #1b2a4a 0%, transparent 50%),
+                  radial-gradient(1000px 700px at 120% 10%, #0d4aa0 0%, transparent 50%),
+                  var(--bg);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 80px; }
+    header {
+      display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-bottom: 26px;
+    }
+    .title { font-size: clamp(28px, 4vw, 42px); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+    .subtitle { margin: 8px 0 0; color: var(--muted); font-size: clamp(14px, 2vw, 16px); }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; border: 1px solid #2b364a; background: linear-gradient(180deg, #0f172a, #0b1220);
+      color: var(--text); padding: 10px 14px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: var(--shadow);
+    }
+    .btn:hover { outline: 3px solid var(--ring); }
+    .grid {
+      display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr);
+    }
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, var(--card), color-mix(in srgb, var(--card), black 6%));
+      border: 1px solid color-mix(in srgb, var(--card), white 8%);
+      border-radius: 16px; padding: 18px; box-shadow: var(--shadow); position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center;
+    }
+    @media (min-width: 720px) {
+      .card { grid-column: span 6; }
+    }
+    .thumb {
+      width: 100%; aspect-ratio: 16/10; border-radius: 12px; background: #0a0f1a; overflow: hidden; border: 1px solid #273042;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--muted);
+    }
+    .content h3 { margin: 0 0 6px; font-size: 18px; }
+    .content p { margin: 0 0 10px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; background: color-mix(in srgb, var(--brand), white 85%);
+           color: #0f172a; padding: 6px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--brand), black 20%);
+    }
+    .links { display: flex; gap: 10px; margin-top: 10px; }
+    .link { font-weight: 600; text-decoration: none; color: var(--brand); }
+
+    footer { margin-top: 36px; color: var(--muted); text-align: center; }
+    .filterbar{ display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 22px }
+    .pill{ padding:8px 12px; border-radius:999px; border:1px solid #2b364a; cursor:pointer; user-select:none }
+    .pill.active{ background: var(--brand); color:#fff; border-color: var(--brand) }
+    .search{ flex:1; min-width:200px; padding:10px 12px; border-radius:12px; border:1px solid #2b364a; background:var(--card); color:var(--text) }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1 class="title">Hi, I'm <span style="color:var(--brand)">Your&nbsp;Name</span></h1>
+        <p class="subtitle">I build things for web, data, and fun. Here are a few projects I’m proud of.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="mailto:you@example.com">Contact</a>
+      </div>
+    </header>
+
+    <div class="filterbar">
+      <input id="search" class="search" placeholder="Search projects… (e.g. next.js, python)"/>
+      <div id="filters"></div>
+    </div>
+
+    <section id="projects" class="grid"></section>
+
+    <footer>
+      <p>© <span id="year"></span> Your Name • Built with ❤️ on GitHub Pages</p>
+    </footer>
+  </div>
+
+  <script>
+    // 👇 Edit your projects here
+    const PROJECTS = [
+      {
+        title: "WeatherDash",
+        description: "A minimal weather dashboard using a public API and local caching.",
+        image: "https://raw.githubusercontent.com/yourusername/yourrepo/main/assets/weather.png",
+        tags: ["javascript","api","frontend"],
+        repo: "https://github.com/yourusername/weatherdash",
+        demo: "https://yourusername.github.io/weatherdash/"
+      },
+      {
+        title: "BookQL",
+        description: "GraphQL backend for a book catalog with auth and tests.",
+        image: "https://raw.githubusercontent.com/yourusername/yourrepo/main/assets/bookql.png",
+        tags: ["graphql","node","backend"],
+        repo: "https://github.com/yourusername/bookql"
+      },
+      {
+        title: "Notebook-ETL",
+        description: "Pandas-powered ETL notebook with reproducible pipelines.",
+        image: "",
+        tags: ["python","data"],
+        repo: "https://github.com/yourusername/notebook-etl"
+      },
+      {
+        title: "NextShop",
+        description: "E‑commerce demo with Next.js, Stripe, and ISR.",
+        image: "",
+        tags: ["next.js","react","full‑stack"],
+        repo: "https://github.com/yourusername/nextshop",
+        demo: "https://nextshop.example.com"
+      }
+    ];
+
+    // --- UI Logic (search + filter + render) ---
+    const projectsEl = document.getElementById('projects');
+    const filtersEl = document.getElementById('filters');
+    const searchEl = document.getElementById('search');
+
+    const allTags = Array.from(new Set(PROJECTS.flatMap(p => p.tags))).sort();
+
+    const state = { query: "", tags: new Set() };
+
+    function renderFilters(){
+      filtersEl.innerHTML = '';
+      const make = (t)=>{
+        const el = document.createElement('button');
+        el.className = 'pill';
+        el.textContent = t;
+        el.onclick = ()=>{ toggleTag(t); };
+        if(state.tags.has(t)) el.classList.add('active');
+        return el;
+      }
+      allTags.forEach(t=> filtersEl.appendChild(make(t)));
+      // Clear button
+      if(state.tags.size || state.query){
+        const clear = document.createElement('button');
+        clear.className='pill';
+        clear.textContent='Clear';
+        clear.onclick=()=>{ state.tags.clear(); state.query=''; searchEl.value=''; update(); };
+        filtersEl.appendChild(clear);
+      }
+    }
+
+    function toggleTag(t){
+      state.tags.has(t) ? state.tags.delete(t) : state.tags.add(t);
+      update();
+    }
+
+    function projectCard(p){
+      const div = document.createElement('article');
+      div.className = 'card';
+      const img = p.image ? `<img class="thumb" src="${p.image}" alt="${p.title} preview"/>` : `<div class="thumb">${p.title.substring(0,1)}</div>`;
+      const tags = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+      const links = `
+        <div class="links">
+          ${p.demo ? `<a class="link" href="${p.demo}" target="_blank" rel="noopener">Live demo →</a>` : ''}
+          ${p.repo ? `<a class="link" href="${p.repo}" target="_blank" rel="noopener">Source code →</a>` : ''}
+        </div>`;
+      div.innerHTML = `${img}
+        <div class="content">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <div class="tags">${tags}</div>
+          ${links}
+        </div>`;
+      return div;
+    }
+
+    function matches(p){
+      const q = state.query.toLowerCase();
+      const qOk = !q || [p.title, p.description, ...(p.tags||[])].join(' ').toLowerCase().includes(q);
+      const tagsOk = !state.tags.size || (p.tags||[]).some(t=> state.tags.has(t));
+      return qOk && tagsOk;
+    }
+
+    function update(){
+      projectsEl.innerHTML = '';
+      PROJECTS.filter(matches).forEach(p=> projectsEl.appendChild(projectCard(p)));
+      renderFilters();
+    }
+
+    searchEl.addEventListener('input', (e)=>{ state.query = e.target.value; update(); });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    update();
+  </script>
+</body>
+</html>
