@@ -14,9 +14,10 @@
       --card: #111a2b;
       --muted: #93a1b1;
       --text: #e6edf3;
-      --brand: #3b82f6;
+      --brand:rgb(85, 61, 223);
       --ring: #60a5fa55;
       --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --btntxt: #e6edf3;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -24,8 +25,9 @@
         --card: #ffffff;
         --muted: #4b5563;
         --text: #0f172a;
-        --brand: #2563eb;
+        --brand:rgb(146, 72, 216);
         --ring: #2563eb33;
+        --btntxt:rgb(204, 204, 204);
       }
     }
     * { box-sizing: border-box; }
@@ -47,7 +49,7 @@
     .actions { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 10px; border: 1px solid #2b364a; background: linear-gradient(180deg, #0f172a, #0b1220);
-      color: var(--text); padding: 10px 14px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: var(--shadow);
+      color: var(--btntext); padding: 10px 14px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: var(--shadow);
     }
     .btn:hover { outline: 3px solid var(--ring); }
     .grid {
@@ -87,7 +89,7 @@
   <div class="container">
     <header>
       <div>
-        <h1 class="title">Hi, I'm <span style="color:var(--brand)">Viktor Lundin</span></h1>
+        <h1 class="title"><span style="color:var(--brand)">Viktor Lundin</span></h1>
         <p class="subtitle">Master Student, Computer and Information Egineering</p>
       </div>
       <div class="actions">
@@ -119,6 +121,13 @@
         repo: "https://github.com/vilu9169/KandDOM",
       },
       {
+        title: "Photography Portfolio",
+        description: "A personal portfolio website to showcase my photography work.",
+        image: "",
+        tags: ["python","frontend","javascript","nodejs", "backend"],
+        demo: "https://vilu9169.github.io/PhotoPort-V2.0/",
+      }
+      {
         title: "Simple Game vs AI",
         description: "Simple game where you play vs AI, implemented for course Software Engineering and Project Management.",
         image: "https://vilu9169.github.io/img/SEMP.png",
@@ -139,13 +148,6 @@
         tags: ["python","ml","pytorch"],
         repo: "https://github.com/vilu9169/DEEP-LEARNING/nextshop",
       },
-      {
-        title: "Photography Portfolio",
-        description: "A personal portfolio website to showcase my photography work.",
-        image: "",
-        tags: ["python","frontend","javascript","nodejs", "backend"],
-        demo: "https://vilu9169.github.io/PhotoPort-V2.0/",
-      }
     ];
 
     // --- UI Logic (search + filter + render) ---
