@@ -1,236 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Projects</title>
-  <meta name="description" content="A clean, responsive portfolio of my projects." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <title>Viktor Lundin</title>
+  <meta name="description" content="Viktor Lundin's selected work in software engineering, AI, and photography. Explore JobView, a desktop job-search tracker, and my photography portfolio.">
+  <meta property="og:title" content="Viktor Lundin — Software & Photography">
+  <meta property="og:description" content="Building useful software. Finding new perspectives. Selected projects by Viktor Lundin.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vilu9169.github.io/">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #111a2b;
-      --muted: #93a1b1;
-      --text: #e6edf3;
-      --brand:rgb(85, 61, 223);
-      --ring: #60a5fa55;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
-      --btntxt: #e6edf3;
-    }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f6f8fa;
-        --card: #ffffff;
-        --muted: #4b5563;
-        --text: #0f172a;
-        --brand:rgb(146, 72, 216);
-        --ring: #2563eb33;
-        --btntxt:rgb(204, 204, 204);
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(1200px 800px at 10% -10%, #1b2a4a 0%, transparent 50%),
-                  radial-gradient(1000px 700px at 120% 10%, #0d4aa0 0%, transparent 50%),
-                  var(--bg);
-    }
-    .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 80px; }
-    header {
-      display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-bottom: 26px;
-    }
-    .title { font-size: clamp(28px, 4vw, 42px); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
-    .subtitle { margin: 8px 0 0; color: var(--muted); font-size: clamp(14px, 2vw, 16px); }
-    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px; border: 1px solid #2b364a; background: linear-gradient(180deg, #0f172a, #0b1220);
-      color: var(--btntxt); padding: 10px 14px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: var(--shadow);
-    }
-    .btn:hover { outline: 3px solid var(--ring); }
-    .grid {
-      display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr);
-    }
-    .card {
-      grid-column: span 12;
-      background: linear-gradient(180deg, var(--card), color-mix(in srgb, var(--card), black 6%));
-      border: 1px solid color-mix(in srgb, var(--card), white 8%);
-      border-radius: 16px; padding: 18px; box-shadow: var(--shadow); position: relative; overflow: hidden;
-      display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center;
-    }
-    @media (min-width: 720px) {
-      .card { grid-column: span 6; }
-    }
-    .thumb {
-      width: 100%; aspect-ratio: 16/10; border-radius: 12px; background: #0a0f1a; overflow: hidden; border: 1px solid #273042;
-      display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--muted);
-    }
-    .content h3 { margin: 0 0 6px; font-size: 18px; }
-    .content p { margin: 0 0 10px; color: var(--muted); }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { font-size: 12px; background: color-mix(in srgb, var(--brand), white 85%);
-           color: #0f172a; padding: 6px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--brand), black 20%);
-    }
-    .links { display: flex; gap: 10px; margin-top: 10px; }
-    .link { font-weight: 600; text-decoration: none; color: var(--brand); }
-
-    footer { margin-top: 36px; color: var(--muted); text-align: center; }
-    .filterbar{ display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 22px }
-    .pill{ padding:8px 12px; border-radius:999px; border:1px solid #2b364a; cursor:pointer; user-select:none }
-    .pill.active{ background: var(--brand); color:#fff; border-color: var(--brand) }
-    .search{ flex:1; min-width:200px; padding:10px 12px; border-radius:12px; border:1px solid #2b364a; background:var(--card); color:var(--text) }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260916-jobview">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div>
-        <h1 class="title"><span style="color:var(--brand)">Viktor Lundin</span></h1>
-        <p class="subtitle">Master Student, Computer and Information Egineering</p>
-      </div>
-      <div class="actions">
-        <a class="btn" href="https://github.com/vilu9169" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="mailto:viktor.lundin3@gmail.com">Contact</a>
-      </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="Viktor Lundin, home"><span class="monogram" aria-hidden="true">vl.</span> Viktor Lundin</a>
+      <nav aria-label="Main navigation">
+        <a class="nav-work" href="#work">Selected work</a>
+        <a href="https://github.com/vilu9169" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="nav-contact" href="mailto:viktor.lundin3@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
     </header>
-
-    <div class="filterbar">
-      <input id="search" class="search" placeholder="Search projects… (e.g. next.js, python)"/>
-      <div id="filters"></div>
-    </div>
-
-    <section id="projects" class="grid"></section>
-
-    <footer>
-      <p>© <span id="year"></span> Viktor Lundin</p>
-    </footer>
+    <main id="main">
+      <section class="hero" aria-labelledby="intro-title">
+        <p class="eyebrow"><span class="accent-dot" aria-hidden="true"></span> Software engineering & a creative eye</p>
+        <h1 id="intro-title">Some of my projects.<br><em>It's fun to learn!</em></h1>
+        <div class="hero-bottom">
+          <p>I’m Viktor, M.Sc in Computer and Information Engineering.</p>
+          <a class="text-link explore-link" href="#work">Explore my work <span class="round-arrow" aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+      <section class="work" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">A selection of things I’ve made</p><h2 id="work-title">Selected work<span class="heading-dot">.</span></h2></div>
+          <span class="project-total">01 — 06</span>
+        </div>
+        <div class="project-tools" id="project-tools" hidden>
+          <div class="filters" role="group" aria-label="Filter projects by category">
+            <button type="button" class="filter active" data-filter="all" aria-pressed="true">All projects <span>6</span></button>
+            <button type="button" class="filter" data-filter="applications" aria-pressed="false">Applications</button>
+            <button type="button" class="filter" data-filter="ai-data" aria-pressed="false">AI & data</button>
+            <button type="button" class="filter" data-filter="photography" aria-pressed="false">Photography</button>
+          </div>
+          <label class="search-field">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+            <span class="sr-only">Search projects</span>
+            <input type="search" id="search" placeholder="Search projects…" autocomplete="off" aria-controls="project-list">
+          </label>
+        </div>
+        <div class="search-summary" id="search-summary" hidden>
+          <p id="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+          <button type="button" class="reset-link" id="reset-filters">Clear filters <span aria-hidden="true">↺</span></button>
+        </div>
+        <div id="project-list">
+          <section class="featured-section" aria-labelledby="featured-title">
+            <div class="group-heading"><h3 id="featured-title"><span class="accent-dot" aria-hidden="true"></span> In the spotlight</h3><span>Two projects I have focused on recently</span></div>
+            <div class="featured-grid">
+              <article class="project-card featured-card" data-categories="applications ai-data" data-keywords="JobView MailView React TypeScript Tauri Rust SQLite SQLx Vite Tailwind Gmail API Gemini AI desktop backend frontend">
+                <div class="project-visual jobview-visual">
+                  <div class="visual-topline"><span><span class="tiny-dot" aria-hidden="true"></span> DESKTOP APPLICATION</span><span>01 / FEATURED</span></div>
+                  <a class="jobview-screenshot" href="img/jobview.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size JobView screenshot">
+                    <img src="img/jobview.png" alt="JobView desktop app showing application statistics, job stages, and upcoming actions" width="1425" height="1108">
+                  </a>
+                  <span class="visual-caption">View full screenshot ↗</span>
+                </div>
+                <div class="card-content"><div class="card-heading"><h4>JobView</h4><span class="project-kind">Desktop app</span></div><p>A clearer view of the job search. Track applications, connect Gmail, and keep every next step in one place—with local storage and optional AI email classification.</p><ul class="tags" aria-label="JobView technologies"><li>React</li><li>TypeScript</li><li>Rust</li><li>Tauri</li><li>SQLite</li></ul><div class="card-links"><a class="primary-link" href="https://github.com/vilu9169/JobView" target="_blank" rel="noopener noreferrer">Explore project <span aria-hidden="true">↗</span><span class="sr-only">: JobView on GitHub</span></a><span class="link-note">Built for Windows</span></div></div>
+              </article>
+              <article class="project-card featured-card" data-categories="photography applications" data-keywords="Photography Portfolio PhotoPort Next.js React JavaScript Python Django REST API Cloudinary frontend backend full-stack">
+                <a class="project-visual photography-visual" href="https://vilu9169.github.io/PhotoPort-V2.0/" target="_blank" rel="noopener noreferrer" aria-label="Explore Viktor Lundin’s photography portfolio">
+                  <div class="photo-pair"><img src="img/photography-japan.jpg" alt="A neon-lit shop in Japan, photographed by Viktor Lundin" width="800" height="1200"><img src="img/photography-street.jpg" alt="A shopping street in Japan, photographed by Viktor Lundin" width="800" height="1200"></div>
+                  <div class="visual-topline"><span>THROUGH MY LENS</span><span>02 / FEATURED</span></div>
+                  <div class="photo-overlay"><div><span>A VISUAL JOURNAL</span><strong>A different<br><em>perspective.</em></strong></div><span class="photo-arrow" aria-hidden="true">↗</span></div>
+                </a>
+                <div class="card-content"><div class="card-heading"><h4>Photography Portfolio</h4><span class="project-kind">Web & photography</span></div><p>Places, people, and moments across Asia and Sweden. A photography collection brought to life with a custom gallery, a Django API, and Cloudinary image delivery.</p><ul class="tags" aria-label="Photography Portfolio technologies"><li>Next.js</li><li>React</li><li>Django</li><li>Cloudinary</li></ul><div class="card-links"><a class="primary-link" href="https://vilu9169.github.io/PhotoPort-V2.0/" target="_blank" rel="noopener noreferrer">Visit portfolio <span aria-hidden="true">↗</span></a><a class="secondary-link" href="https://github.com/vilu9169/PhotoPort-V2.0" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span><span class="sr-only">: Photography Portfolio</span></a></div></div>
+              </article>
+            </div>
+          </section>
+          <section class="more-section" aria-labelledby="more-title">
+            <div class="group-heading"><h3 id="more-title">More explorations</h3><span>Research, experiments & coursework</span></div>
+            <div class="more-grid">
+              <article class="project-card compact-card" data-categories="ai-data applications" data-keywords="Pythia Bachelor thesis Domstolsverket Python API frontend backend machine learning ML legal document analysis">
+                <div class="compact-visual pythia-visual"><img src="img/pythia.png" alt="Pythia thesis abstract: Legal analysis with AI efficiency" width="564" height="661" loading="lazy"></div>
+                <div class="card-content"><div class="card-heading"><h4>Pythia</h4><span class="project-number">03</span></div><p>AI-assisted legal document analysis. A bachelor’s thesis in collaboration with Domstolsverket.</p><ul class="tags" aria-label="Pythia technologies"><li>Python</li><li>Machine learning</li><li>API</li></ul><div class="card-links"><a class="secondary-link" href="https://github.com/vilu9169/KandDOM" target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span><span class="sr-only">: Pythia</span></a><span class="link-note">Bachelor’s thesis</span></div></div>
+              </article>
+              <article class="project-card compact-card" data-categories="applications ai-data" data-keywords="Calendar AI CalendAI Python API artificial intelligence">
+                <div class="compact-visual calendar-visual" aria-hidden="true"><div class="calendar-sheet"><div class="calendar-top"><span>CALENDAR AI</span><span>✳</span></div><div class="calendar-week"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div><div class="calendar-days"><span>12</span><span>13</span><span class="calendar-selected">14</span><span>15</span><span>16</span><span>17</span><span>18</span></div><div class="calendar-event"><i></i><span>A little more room for ideas.</span></div></div></div>
+                <div class="card-content"><div class="card-heading"><h4>Calendar AI</h4><span class="project-number">04</span></div><p>A personal project exploring how AI can fit into an everyday calendar application.</p><ul class="tags" aria-label="Calendar AI technologies"><li>Python</li><li>API</li><li>AI</li></ul><div class="card-links"><a class="secondary-link" href="https://github.com/vilu9169/CalendAI" target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span><span class="sr-only">: Calendar AI</span></a><span class="link-note">Personal project</span></div></div>
+              </article>
+              <article class="project-card compact-card" data-categories="applications" data-keywords="Simple Game vs Computer Python AI software engineering project management SEMP">
+                <div class="compact-visual game-visual"><img src="img/SEMP.png" alt="Game board from Simple Game vs Computer" width="564" height="661" loading="lazy"></div>
+                <div class="card-content"><div class="card-heading"><h4>Simple Game vs Computer</h4><span class="project-number">05</span></div><p>A game against an AI opponent, built for Software Engineering and Project Management coursework.</p><ul class="tags" aria-label="Game technologies"><li>Python</li><li>Game AI</li></ul><div class="card-links"><a class="secondary-link" href="https://github.com/vilu9169/Group-3-SEMP" target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span><span class="sr-only">: Simple Game vs Computer</span></a><span class="link-note">Course project</span></div></div>
+              </article>
+              <article class="project-card compact-card" data-categories="ai-data" data-keywords="Project in Data Mining Python machine learning ML Pandas diabetes socio-economic factors countries prediction">
+                <div class="compact-visual data-visual" aria-hidden="true"><div class="data-graphic"><span>FROM DATA TO UNDERSTANDING</span><svg viewBox="0 0 340 100" fill="none"><path d="M0 25H340M0 50H340M0 75H340" stroke="#d4dedb" stroke-dasharray="3 5"/><path d="M10 85 45 71 81 78 116 49 153 59 190 37 224 43 262 23 298 30 332 9" stroke="#426d62" stroke-width="2"/><g fill="#426d62" stroke="#e8efeb" stroke-width="3"><circle cx="10" cy="85" r="5"/><circle cx="45" cy="71" r="5"/><circle cx="81" cy="78" r="5"/><circle cx="116" cy="49" r="5"/><circle cx="153" cy="59" r="5"/><circle cx="190" cy="37" r="5"/><circle cx="224" cy="43" r="5"/><circle cx="262" cy="23" r="5"/><circle cx="298" cy="30" r="5"/><circle cx="332" cy="9" r="5"/></g></svg><small>Explore. Connect. Predict.</small></div></div>
+                <div class="card-content"><div class="card-heading"><h4>Project in Data Mining</h4><span class="project-number">06</span></div><p>Exploring socioeconomic factors to predict diabetes rates across different countries.</p><ul class="tags" aria-label="Data Mining technologies"><li>Python</li><li>Pandas</li><li>Machine learning</li></ul><div class="card-links"><a class="secondary-link" href="https://github.com/CarlJohan12/Data-Mining-Project" target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span><span class="sr-only">: Project in Data Mining</span></a><span class="link-note">Course project</span></div></div>
+              </article>
+            </div>
+          </section>
+        </div>
+        <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">↳</span><h3>No projects found.</h3><p>Try a different name or technology, or clear the filters to see all my work.</p><button type="button" class="primary-link" id="empty-reset">Show all projects <span aria-hidden="true">↗</span></button></div>
+      </section>
+      <section class="contact-section" aria-labelledby="contact-title"><div><p class="eyebrow">Have something in mind?</p><h2 id="contact-title">Feel free to send a message!</h2></div><a class="contact-link" href="mailto:viktor.lundin3@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer><span>© <span id="year">2026</span> Viktor Lundin</span><span class="footer-note">Code, curiosity, and a camera.</span><a href="#">Back to top <span aria-hidden="true">↑</span></a></footer>
   </div>
-
-  <script>
-    // 👇 Edit your projects here
-    const PROJECTS = [
-      {
-        title: "Pythia",
-        description: "Bachelor thesis in collaboration with Domstolsverket: AI‑assisted legal document analysis.",
-        image: "https://vilu9169.github.io/img/pythia.png",
-        tags: ["python","api","frontend", "backend", "ml"],
-        repo: "https://github.com/vilu9169/KandDOM",
-      },
-      {
-        title: "Photography Portfolio",
-        description: "A personal portfolio website to showcase my photography work.",
-        image: "",
-        tags: ["python","frontend","javascript","nodejs", "backend"],
-        demo: "https://vilu9169.github.io/PhotoPort-V2.0/",
-        repo: "https://github.com/vilu9169/PhotoPort-V2.0"
-      },
-      {
-        title: "Calendar AI",
-        description: "Personal Project, AI integrated Calendar Program",
-        image: "",
-        tags: ["python", "API"],
-        repo: "https://github.com/vilu9169/CalendAI"
-      },
-      {
-        title: "Simple Game vs Computer",
-        description: "Simple game where you play vs AI, implemented for course Software Engineering and Project Management.",
-        image: "https://vilu9169.github.io/img/SEMP.png",
-        tags: ["python"],
-        repo: "https://github.com/vilu9169/Group-3-SEMP"
-      },
-      {
-        title: "Project in Data Mining",
-        description: "Project in Data Mining, trying to predict diabetes rates in different countries using socio-economic factors.",
-        image: "",
-        tags: ["python","data","ml","pandas"],
-        repo: "https://github.com/CarlJohan12/Data-Mining-Project"
-      },
-      {
-        title: "Assignments in Deep Learning and Visual Recognition",
-        description: "Assignment work for course in Deep Learning and Visual Recognition.",
-        image: "",
-        tags: ["python","ml","pytorch"],
-        repo: "https://github.com/vilu9169/DEEP-LEARNING",
-      },
-    ];
-
-    // --- UI Logic (search + filter + render) ---
-    const projectsEl = document.getElementById('projects');
-    const filtersEl = document.getElementById('filters');
-    const searchEl = document.getElementById('search');
-
-    const allTags = Array.from(new Set(PROJECTS.flatMap(p => p.tags))).sort();
-
-    const state = { query: "", tags: new Set() };
-
-    function renderFilters(){
-      filtersEl.innerHTML = '';
-      const make = (t)=>{
-        const el = document.createElement('button');
-        el.className = 'pill';
-        el.textContent = t;
-        el.onclick = ()=>{ toggleTag(t); };
-        if(state.tags.has(t)) el.classList.add('active');
-        return el;
-      }
-      allTags.forEach(t=> filtersEl.appendChild(make(t)));
-      // Clear button
-      if(state.tags.size || state.query){
-        const clear = document.createElement('button');
-        clear.className='pill';
-        clear.textContent='Clear';
-        clear.onclick=()=>{ state.tags.clear(); state.query=''; searchEl.value=''; update(); };
-        filtersEl.appendChild(clear);
-      }
-    }
-
-    function toggleTag(t){
-      state.tags.has(t) ? state.tags.delete(t) : state.tags.add(t);
-      update();
-    }
-
-    function projectCard(p){
-      const div = document.createElement('article');
-      div.className = 'card';
-      const img = p.image ? `<img class="thumb" src="${p.image}" alt="${p.title} preview"/>` : `<div class="thumb">${p.title.substring(0,1)}</div>`;
-      const tags = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
-      const links = `
-        <div class="links">
-          ${p.demo ? `<a class="link" href="${p.demo}" target="_blank" rel="noopener">Live demo →</a>` : ''}
-          ${p.repo ? `<a class="link" href="${p.repo}" target="_blank" rel="noopener">Source code →</a>` : ''}
-        </div>`;
-      div.innerHTML = `${img}
-        <div class="content">
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
-          <div class="tags">${tags}</div>
-          ${links}
-        </div>`;
-      return div;
-    }
-
-    function matches(p){
-      const q = state.query.toLowerCase();
-      const qOk = !q || [p.title, p.description, ...(p.tags||[])].join(' ').toLowerCase().includes(q);
-      const tagsOk = !state.tags.size || (p.tags||[]).some(t=> state.tags.has(t));
-      return qOk && tagsOk;
-    }
-
-    function update(){
-      projectsEl.innerHTML = '';
-      PROJECTS.filter(matches).forEach(p=> projectsEl.appendChild(projectCard(p)));
-      renderFilters();
-    }
-
-    searchEl.addEventListener('input', (e)=>{ state.query = e.target.value; update(); });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    update();
-  </script>
 </body>
 </html>
